@@ -1,0 +1,17 @@
+
+Package: *
+Pin: release n=bullseye
+Pin-Priority: 900
+
+
+Package: *
+Pin: release n=sid
+Pin-Priority: 100
+
+
+Package: *
+Pin: release n=bullseye-backports
+Pin-Priority: 200
+
+
+
