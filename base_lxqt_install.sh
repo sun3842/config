@@ -14,7 +14,7 @@ sudo apt install bluetooth bluedevil bluez bluez-tools pulseaudio-module-bluetoo
 
 
 # install other pakages
-sudo apt install redshift redshift-gtk neofetch cmatrix feh lxappearance kitty htop exa rofi lxappearance flatpak -y
+sudo apt install picom redshift redshift-gtk neofetch cmatrix feh lxappearance kitty htop exa rofi lxappearance flatpak -y
 
 # Install fonts
 sudo apt install fonts-font-awesome fonts-powerline fonts-ubuntu fonts-liberation2 fonts-liberation fonts-terminus fonts-cascadia-code

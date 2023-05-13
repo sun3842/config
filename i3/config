@@ -148,7 +148,7 @@ exec_always --no-startup-id $HOME/.config/polybar/launch.sh
 
 
 # Picom Compositor
-#exec_always --no-startup-id picom
+exec_always --no-startup-id picom
 
 #Set Wallpaper Randomly from "~/Pictures/wallpaper/" directory  usinf FEH only JPG format
 exec_always feh --bg-scale  "$(find ~/Pictures/wallpaper/ -name '*.jpg' | shuf -n 1)" 
@@ -236,7 +236,7 @@ bindsym $mod+f exec  nemo
 bindsym $mod+shift+v exec  kitty -e "alsamixer"
 
 # run app-outlet store with sudo previlage
-bindsym $mod+shift+s exec sudo app-outlet
+# bindsym $mod+shift+s exec sudo app-outlet
 
 # chrome browser
 bindsym $mod+i exec firefox-esr
