@@ -53,11 +53,11 @@ hide_edge_borders smart_no_gaps
 #********************color configuration********************#
 
 # class                 border  backgr. text    indicator child_border
-client.focused          #4c7899 #ffffff #007500 #2e9ef4   #285577
-client.focused_inactive #333333 #5f676a #ffffff #484e50   #5f676a
-client.unfocused        #333333 #ffffff #ff6600 #292d2e   #222222
-client.urgent           #2f343a #900000 #ffffff #900000   #900000
-client.placeholder      #000000 #0c0c0c #ffffff #000000   #0c0c0c
+# client.focused          #4c7899 #ffffff #007500 #2e9ef4   #285577
+# client.focused_inactive #333333 #5f676a #ffffff #484e50   #5f676a
+# client.unfocused        #333333 #ffffff #ff6600 #292d2e   #222222
+# client.urgent           #2f343a #900000 #ffffff #900000   #900000
+# client.placeholder      #000000 #0c0c0c #ffffff #000000   #0c0c0c
 
 client.background       #ffffff
 
@@ -120,28 +120,31 @@ bindsym $mod+Shift+0 move container to workspace number $ws10
 #****************Status Bar Configuration********************#
 
 # config for bumblebee-status
-bar {
-        #Location of Bumblebee-Status 
-	status_command /home/mhossain/.local/bin/bumblebee-status \
-		-m cpu memory disk pasink pasource battery redshift date time \
-		-p time.format="%H:%M" disk.open=nemo disk.format="({percent:05.02f}%)" memory.format="({percent:05.02f}%)" brightness.use_acpi=true \
-		-t solarized-powerline
-        position bottom
-        colors {
-        background #000000
-        statusline #ff6600
-        
-        # class 	   border  	background	text
-       	focused_workspace  #4c7899 	#ffffff 	#007500
-        active_workspace   #333333 	#5f676a 	#ffffff
-        inactive_workspace #333333 	#222222 	#ff6600
-        urgent_workspace   #2f343a 	#900000 	#ffffff
-        binding_mode       #2f343a 	#900000 	#ffffff
-	}
-}
+#bar {
+#        #Location of Bumblebee-Status 
+#	status_command /home/mhossain/.local/bin/bumblebee-status \
+#		-m cpu memory disk pasink pasource battery redshift date time \
+#		-p time.format="%H:%M" disk.open=nemo disk.format="({percent:05.02f}%)" #memory.format="({percent:05.02f}%)" brightness.use_acpi=true \
+#		-t solarized-powerline
+#        position bottom
+#        colors {
+#       background #000000
+#        statusline #ff6600
+#        
+#        # class 	   border  	background	text
+#       	focused_workspace  #4c7899 	#ffffff 	#007500
+#        active_workspace   #333333 	#5f676a 	#ffffff
+#       inactive_workspace #333333 	#222222 	#ff6600
+#       urgent_workspace   #2f343a 	#900000 	#ffffff
+#        binding_mode       #2f343a 	#900000 	#ffffff
+#	}
+#}
 
 #********************Start Up Programs***********************#
 
+# POLYBAR 	
+
+exec_always --no-startup-id $HOME/.config/polybar/launch.sh
 
 
 # Picom Compositor
@@ -151,7 +154,7 @@ bar {
 exec_always feh --bg-scale  "$(find ~/Pictures/wallpaper/ -name '*.jpg' | shuf -n 1)" 
 
 # redshift light filter
-#exec_always --no-startup-id redshift
+# exec_always --no-startup-id redshift
 
 
 #********************All Custom Key Byndings*****************#
@@ -227,7 +230,7 @@ bindsym  $mod+shift+F12 exec --no-startup-id "~/.config/i3/bin/logout"
 
 
 #file explorer
-bindsym $mod+f exec  kitty -e "mc"
+bindsym $mod+f exec  nemo
 
 # volioum controll with alsamixer
 bindsym $mod+shift+v exec  kitty -e "alsamixer"
@@ -236,7 +239,7 @@ bindsym $mod+shift+v exec  kitty -e "alsamixer"
 bindsym $mod+shift+s exec sudo app-outlet
 
 # chrome browser
-bindsym $mod+i exec google-chrome
+bindsym $mod+i exec firefox-esr
 
 # Media player controls
 bindsym XF86AudioPlay exec playerctl play
@@ -273,6 +276,6 @@ bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcu
 
 
 # start pulseaudio
-exec_always pulseaudio --start 
+# exec_always pulseaudio --start 
 
 
