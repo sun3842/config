@@ -73,8 +73,8 @@ focus_follows_mouse yes
 
 # Use Mouse+$mod to drag floating windows to their wanted position
 floating_modifier $mod
-
-
+floating_minimum_size -1 x -1
+floating_maximum_size 1080 x 720
 # focus the child container
 #bindsym $mod+d focus child
 
@@ -240,6 +240,12 @@ bindsym $mod+shift+v exec  kitty -e "alsamixer"
 
 # chrome browser
 bindsym $mod+i exec firefox-esr
+
+
+#enable qtpass floating
+for_window [class="QtPass"] floating enable
+# password manager
+bindsym $mod+p exec qtpass
 
 # Media player controls
 bindsym XF86AudioPlay exec playerctl play
