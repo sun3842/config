@@ -5,6 +5,7 @@ sudo apt install build-essential git -y
 
 # install devel pakages
 sudo apt install net-tools libncurses5-dev libssl-dev flex bison autoconf libtool libtinfo5 libncurses5-dev libncursesw5-dev libncurses5 libtinfo-dev  -y
+sudo apt-get install build-essential linux-source bc kmod cpio flex libncurses5-dev libelf-dev libssl-dev dwarves bison fakeroot -y
 
 # python pakages
 sudo apt install  python3 python3-pexpect python3-pip python3-git python3-jinja2 -y
