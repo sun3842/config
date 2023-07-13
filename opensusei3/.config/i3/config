@@ -115,7 +115,7 @@ client.placeholder $gbd_bg0_h 	$gbd_bg0_h 		$gbd_bg0_h		$gbd_bg0_h		$gbd_bg0_h
 
 
 # POLYBAR 	
-exec_always --no-startup-id $HOME/.config/polybar/launch.sh
+# exec_always --no-startup-id $HOME/.config/polybar/launch.sh
 
 ##### End Settings #####
 
@@ -296,7 +296,7 @@ bindsym $mod+shift+v exec  kitty -e "alsamixer"
 # bindsym $mod+shift+s exec sudo app-outlet
 
 # chrome browser
-bindsym $mod+i exec brave-browser
+bindsym $mod+i exec flatpak run com.brave.Browser &
 
 
 #enable qtpass floating

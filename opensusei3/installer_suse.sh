@@ -5,4 +5,4 @@ sudo zypper install -t pattern base devel_basis devel_C_C++ devel_java devel_ker
 
 
 # fav pakages
-sudo zypper install i3 picom redshift-gtk lxappearance polybar kitty password-store QtPass gparted rofi exa feh geany htop neofetch flameshot flatpak 
+sudo zypper install i3 picom redshift-gtk alacarte lxappearance polybar kitty password-store QtPass gparted rofi exa feh geany htop neofetch flameshot flatpak 
