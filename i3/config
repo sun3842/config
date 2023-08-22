@@ -14,6 +14,111 @@ set $mod Mod4
 # Font for window titles. Will also be used by the bar unless a different font
 # is used in the bar {} block below.
 
+###### Start Color Scheme #####
+
+# Catppuccin
+set $cpcn_flamingo #F3CDCD
+set $cpcn_mauve #DDB6F2
+set $cpcn_pink #f5c2e7
+set $cpcn_maroon #e8a2af
+set $cpcn_red #f28fad
+set $cpcn_peach #f8bd96
+set $cpcn_yellow #fae3b0
+set $cpcn_green #abe9b3
+set $cpcn_teal #b4e8e0
+set $cpcn_blue #96cdfb
+set $cpcn_sky #89dceb
+set $cpcn_white #d9e0ee
+set $cpcn_gray #6e6c7e
+set $cpcn_black #1a1826
+
+# Gruvbox Dark
+set $gbd_bg #282828
+set $gbd_red #cc241d
+set $gbd_green #98971a
+set $gbd_yellow #d79921
+set $gbd_blue #458588
+set $gbd_purple #b16286
+set $gbd_aqua #689d6a
+set $gbd_light_gray #a89984
+set $gbd_gray #928374
+set $gbd_light_red #fb4934
+set $gbd_light_green #b8bb26
+set $gbd_light_yellow #fabd2f
+set $gbd_light_blue #83a598
+set $gbd_light_purple #d3869b
+set $gbd_light_aqua #8ec07c
+set $gbd_fg #ebdbb2
+set $gbd_bg0_h #1d2021
+set $gbd_bg0 #282828
+set $gbd_bg1 #3c3836
+set $gbd_bg2 #504945
+set $gbd_bg3 #665c54
+set $gbd_bg4 #7c6f64
+set $gbd_orange #d65d0e
+set $gbd_bg0_s #32302f
+set $gbd_fg4 #a89984
+set $gbd_fg3 #bdae93
+set $gbd_fg2 #d5c4a1
+set $gbd_fg1 #ebdbb2
+set $gbd_fg0 #fbf1c7
+set $gbd_light_orange #fe8019
+
+##### End Color Scheme #####
+
+##### Start Settings #####
+set $terminal kitty
+set $inner_gap_size 18
+set $outer_gap_size 4
+set $border_size 4
+
+# Only enable gaps on a workspace when there is at least one container
+smart_gaps on
+
+# Activate smart borders (always)
+smart_borders on
+
+# Hide edge borders only if there is one window with no gaps
+hide_edge_borders smart_no_gaps
+
+# Gaps
+gaps inner $inner_gap_size
+gaps outer $outer_gap_size
+
+# Border stuff.
+default_border pixel $border_size
+default_floating_border pixel $border_size
+
+
+# focus with mouse yes
+focus_follows_mouse yes
+
+# default workspace oriantation set vertical
+default_orientation horizontal
+
+# default windows laout set tab
+workspace_layout default
+
+# Use Mouse+$mod to drag floating windows to their wanted position
+floating_modifier $mod
+floating_minimum_size -1 x -1
+floating_maximum_size 1080 x 720
+
+
+# Colors.
+# Class							Border			Background		Text			Indicator		Child_border
+client.focused 					$gbd_aqua	 	$gbd_aqua		$gbd_bg0_h		$gbd_aqua 		$gbd_aqua
+client.focused_inactive 		$gbd_bg0_h		$gbd_bg0_h		$gbd_aqua		$gbd_bg0_h 		$gbd_bg0_h
+client.unfocused $gbd_bg0_h 	$gbd_bg0_h 		$gbd_aqua		$gbd_bg0_h		$gbd_bg0_h
+client.placeholder $gbd_bg0_h 	$gbd_bg0_h 		$gbd_bg0_h		$gbd_bg0_h		$gbd_bg0_h
+
+
+
+# POLYBAR 	
+# exec_always --no-startup-id $HOME/.config/polybar/launch.sh
+
+##### End Settings #####
+
 # This font is widely installed, provides lots of unicode glyphs, right-to-left
 # text rendering and scalability on retina/hidpi displays (thanks to pango).
 font pango:Sans Bold  12
@@ -29,40 +134,8 @@ exec --no-startup-id dex --autostart --environment i3
 # screen before suspend. Use loginctl lock-session to lock your screen.
 exec --no-startup-id xss-lock --transfer-sleep-lock -- i3lock --nofork
 
-# default workspace oriantation set vertical
-default_orientation horizontal
 
 
-# default windows laout set tab
-workspace_layout default
-
-# i3 gaps configuration
-gaps inner  5
-gaps outer  5
-gaps horizontal  5
-
-# Only enable gaps on a workspace when there is at least one container
-smart_gaps on
-
-# Activate smart borders (always)
-smart_borders on
-
-# Hide edge borders only if there is one window with no gaps
-hide_edge_borders smart_no_gaps
-
-#********************color configuration********************#
-
-# class                 border  backgr. text    indicator child_border
-# client.focused          #4c7899 #ffffff #007500 #2e9ef4   #285577
-# client.focused_inactive #333333 #5f676a #ffffff #484e50   #5f676a
-# client.unfocused        #333333 #ffffff #ff6600 #292d2e   #222222
-# client.urgent           #2f343a #900000 #ffffff #900000   #900000
-# client.placeholder      #000000 #0c0c0c #ffffff #000000   #0c0c0c
-
-client.background       #ffffff
-
-# focus with mouse yes
-focus_follows_mouse yes
 
 
 # NetworkManager is the most popular way to manage wireless networks on Linux,
@@ -71,17 +144,14 @@ focus_follows_mouse yes
 
 
 
-# Use Mouse+$mod to drag floating windows to their wanted position
-floating_modifier $mod
-floating_minimum_size -1 x -1
-floating_maximum_size 1080 x 720
+
 # focus the child container
 #bindsym $mod+d focus child
 
 # Define names for default workspaces for which we configure key bindings later on.
 # We use variables to avoid repeating the names in multiple places.
 
-#*********************WorkSpace Configuration**********#
+##### Start WorkSpace Configuration #####
 set $ws1 "1"
 set $ws2 "2"
 set $ws3 "3"
@@ -117,65 +187,54 @@ bindsym $mod+Shift+8 move container to workspace number $ws8
 bindsym $mod+Shift+9 move container to workspace number $ws9
 bindsym $mod+Shift+0 move container to workspace number $ws10
 
-#****************Status Bar Configuration********************#
+##### End WorkSpace Configuration #####
+
+##### Start Status Bar Configuration #####
 
 # config for bumblebee-status
 #bar {
 #        #Location of Bumblebee-Status 
-#	status_command /home/mhossain/.local/bin/bumblebee-status \
+#	     status_command /home/mhossain/.local/bin/bumblebee-status \
 #		-m cpu memory disk pasink pasource battery redshift date time \
 #		-p time.format="%H:%M" disk.open=nemo disk.format="({percent:05.02f}%)" #memory.format="({percent:05.02f}%)" brightness.use_acpi=true \
 #		-t solarized-powerline
 #        position bottom
 #        colors {
-#       background #000000
+#        background #000000
 #        statusline #ff6600
-#        
-#        # class 	   border  	background	text
-#       	focused_workspace  #4c7899 	#ffffff 	#007500
-#        active_workspace   #333333 	#5f676a 	#ffffff
-#       inactive_workspace #333333 	#222222 	#ff6600
-#       urgent_workspace   #2f343a 	#900000 	#ffffff
-#        binding_mode       #2f343a 	#900000 	#ffffff
+       
+#        # class 	   		border  	background	text
+#       	focused_workspace  #4c7899 		#ffffff 	#007500
+#        active_workspace   #333333 		#5f676a 	#ffffff
+#        inactive_workspace #333333 		#222222 	#ff6600
+#        urgent_workspace   #2f343a 		#900000 	#ffffff
+#        binding_mode       #2f343a 		#900000 	#ffffff
 #	}
 #}
 
-#********************Start Up Programs***********************#
+##### Start Status Bar Configuration #####
 
-# POLYBAR 	
-
-exec_always --no-startup-id $HOME/.config/polybar/launch.sh
-
-
-# Picom Compositor
-exec_always --no-startup-id picom
-
-#Set Wallpaper Randomly from "~/Pictures/wallpaper/" directory  usinf FEH only JPG format
-exec_always feh --bg-scale  "$(find ~/Pictures/wallpaper/ -name '*.jpg' | shuf -n 1)" 
-
-# redshift light filter
-# exec_always --no-startup-id redshift
+##### Start Auto Start programs #####
+exec_always ~/.config/i3/autostart.sh
+##### End Auto Start programs #####
 
 
-#********************All Custom Key Byndings*****************#
+
+##### StartAll Custom Key Byndings #####
 # Lock i3 WM
 bindsym $mod+shift+x  exec i3lock
 
 # start a terminal
-bindsym $mod+Return exec  kitty
+bindsym $mod+Return exec  $terminal
 
 # kill focused window
 bindsym $mod+q kill
 
-# start dmenu (a program launcher)
-#bindsym $mod+d exec --no-startup-id dmenu_run
-
 # A more modern dmenu replacement is rofi:
 bindsym $mod+r exec rofi -show drun 
 
-# There also is i3-dmenu-desktop which only displays applications shipping a
-# .desktop file. It is a wrapper around dmenu, so you need that installed.
-# bindcode $mod+40 exec --no-startup-id i3-dmenu-desktop
+# Rofi power menu
+bindsym $mod+shift+F12 exec ~/.config/rofi/power_menu.sh
 
 # change focus
 bindsym $mod+j focus left
@@ -224,9 +283,7 @@ bindsym $mod+space focus mode_toggle
 # focus the parent container
 bindsym $mod+a focus parent
 
-#shutdown
-#bindsym $mod+shift+F12 exec shutdown now
-bindsym  $mod+shift+F12 exec --no-startup-id "~/.config/i3/bin/logout"
+
 
 
 #file explorer
@@ -239,7 +296,7 @@ bindsym $mod+shift+v exec  kitty -e "alsamixer"
 # bindsym $mod+shift+s exec sudo app-outlet
 
 # chrome browser
-bindsym $mod+i exec firefox-esr
+bindsym $mod+i exec flatpak run com.brave.Browser &
 
 
 #enable qtpass floating
@@ -273,15 +330,4 @@ bindsym $mod+Shift+r restart
 # exit i3 (logs you out of your X session)
 bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -B 'Yes, exit i3' 'i3-msg exit'"
 
-# Use pactl to adjust volume in PulseAudio.
-#set $refresh_i3status killall -SIGUSR1 i3status
-#bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ +10% && $refresh_i3status
-#bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ -10% && $refresh_i3status
-#bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute @DEFAULT_SINK@ toggle && $refresh_i3status
-#bindsym XF86AudioMicMute exec --no-startup-id pactl set-source-mute @DEFAULT_SOURCE@ toggle && $refresh_i3status
-
-
-# start pulseaudio
-# exec_always pulseaudio --start 
-
-
+##### End Custom Key byindgs #####

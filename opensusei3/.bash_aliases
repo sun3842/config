@@ -17,4 +17,9 @@ alias zpr-in="sudo zypper install"
 # remove pakage
 alias zpr-rm="sudo zypper remove"
 
+# flatpack install
+alias flatpak-in="flatpak install"
+
+# flatpak remove
+alias flatpak-rm="flatpak uninstall"
 
